@@ -1,0 +1,80 @@
+Table: Users
+
++--------------+---------+
+| Column Name | Type |
++--------------+---------+
+| Id | int |
+| Name | varchar |
+| CommitCounts | int |
+| LanguageID | int |
++--------------+---------+
+Id is the primary key for this table.
+Each row contains the ID, name, CommitCounts - contains the total commit of the user, and LanguageID of one em
+ployee.
+
+
+Table: Language
+
++-------------+---------+
+| Column Name | Type |
++-------------+---------+
+| Id | int |
+| LanguageName| varchar |
++-------------+---------+
+
+Id is the primary key for this table.
+Each row contains the ID and the LanguageName is the programming language the user have used,
+it could be like Python, HTML etc.
+
+Startup Founder is interested in seeing who has done maximum number of commits in each of the programming lan
+guage.
+A Star commiter in a language is a user who has maximum number of commit.
+
+Write an SQL query to find the employees who are start commiters in each of the programming language.
+
+Return the result table in any order.
+
+The query result format is in the following example:
+
+ 
+
+Employee table:
++----+-------+--------------+--------------+
+| Id | Name | CommitCounts | LanguageId |
++----+-------+--------------+--------------+
+| 1 | Joe | 85000 | 1 |
+| 2 | Henry | 80000 | 2 |
+| 3 | Sam | 60000 | 2 |
+| 4 | Max | 90000 | 1 |
+| 5 | Janet | 69000 | 1 |
+| 6 | Randy | 85000 | 1 |
+| 7 | Will | 70000 | 1 |
++----+-------+--------------+--------------+
+
+Language table:
++----+-----------+
+| Id | Name |
++----+-----------+
+| 1 | Python |
+| 2 | JavaScript|
++----+-----------+
+
+Result table:
++------------+----------+--------+
+| Department | Employee | Salary |
++------------+----------+--------+
+| Python | Max | 90000 |
+| Python | Joe | 85000 |
+| Python | Randy | 85000 |
+| JavaScript | Will | 70000 |
+| JavaScript | Sam | 60000 |
++------------+----------+--------+
+
+In the Python Language:
+- Max has done maximum number of commits.
+- Both Randy and Joe earn the second-highest number of commits
+- Will earns the third-highest max number of commits.
+
+In the Python Language:
+- Max earns the highest salary
+- Joe earns the second-highest salary
