@@ -24,32 +24,16 @@ Given an integer, convert it to a roman numeral.
 CODE:-
 
 class Solution {
-    public String intToRoman(int num) {
-       Map<String, Integer> mp = new LinkedHashMap<>();
-        mp.put("M", 1000);
-        mp.put("CM",900);
-        mp.put("D", 500);
-        mp.put("CD", 400);
-        mp.put("C", 100);
-        mp.put("XC", 90);
-        mp.put("L", 50);
-        mp.put("XL", 40);
-        mp.put("X", 10);      
-        mp.put("IX", 9);
-        mp.put("V", 5);
-        mp.put("IV", 4);
-        mp.put("I", 1);
-        
-        StringBuilder sb = new StringBuilder();
-        
-        for(Map.Entry<String, Integer> entry : mp.entrySet()) {
-            
-            while(num >= entry.getValue()) {
-                num = num - entry.getValue();
-                sb.append(entry.getKey());
+    final static int[] val = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+    final static String[] rom = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+
+    public String intToRoman(int N) {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; N > 0; i++)
+            while (N >= val[i]) {
+                ans.append(rom[i]);
+                N -= val[i];
             }
-        }
-        
-        return sb.toString();
+        return ans.toString();
     }
 }
